@@ -36,3 +36,5 @@ function radixSort(nums) {
 
     return nums;
 }
+
+radixSort([2, 4, 43, 21, 87]);

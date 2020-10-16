@@ -27,7 +27,7 @@ function pivot(arr, start=0, end=arr.length - 1) {
 function quickSort(arr, left = 0, right = arr.length - 1) {
     if (left < right) {
         // get the first index on the main array
-        let pivotIndex = pivot(arr, left, right); // 3
+        let pivotIndex = pivot(arr, left, right); // idx = 3 
         // left
         quickSort(arr, left, pivotIndex - 1);
         // right
@@ -38,3 +38,8 @@ function quickSort(arr, left = 0, right = arr.length - 1) {
 }
 
 quickSort([4, 8, 2, 1, 5, 7, 6, 3]);
+
+// [2, 1, 3, 4, 8, 5, 6, 7] // 3
+// [1, 2, 3, 4, 8, 5, 6, 7] // 1
+// [1, 2, 3, 4, 8, 5, 6, 7] // 0
+// [1, 2, 3, 4, 8, 5, 6, 7] // left = right // false
