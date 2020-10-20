@@ -1,3 +1,6 @@
+// Excels when you need to add and remove in order
+    // Especially from the start
+
 class Node{
     constructor(val){
         this.val = val;

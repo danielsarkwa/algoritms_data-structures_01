@@ -1,4 +1,6 @@
-class Node{
+// Excels when you want to add and remove at any place
+
+class Node {
     constructor(val){
         this.val = val;
         this.next = null;
@@ -94,7 +96,49 @@ class DoublyLinkedList {
         }
         return false;
     }
-    inset(index, val){ }
+    inset(index, val){
+        if(index < 0 || index > this.length) return false;
+        if(index === 0) return !!this.unshift(val);
+        if(index === this.length)  return !!this.push(val);
+
+        var newNode = new Node(val);
+        var prev = this.get(index - 1);
+        var next = prev.next;
+
+        // connect prev and newNode
+        prev.next = newNode;
+        newNode.prev = prev;
+
+        // connect newNode and prev next node (next)
+        newNode.next = next;
+        next.prev = newNode;
+
+        this.length++;
+        return true;
+    }
+    remove(index){
+        if(index < 0 || index >= this.length) return undefined;
+        if(index === 0) return this.shift();
+        if(index === this.length - 1) return this.pop();
+
+        var prev = this.get(index - 1);
+        var removed = prev.next;
+        var next = removed.next;
+
+        // connect prev node and the next of the node to be removed
+        prev.next = next;
+        next.prev = prev;
+
+        // disconnect the removed node
+        removed.next = null;
+        removed.prev = null;
+
+        this.length--;
+        return removed;
+    }
+    reverse(){
+        //
+    }
 }
 
 var list = new DoublyLinkedList()
